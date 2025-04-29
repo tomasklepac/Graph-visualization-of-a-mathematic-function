@@ -1,0 +1,18 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c99 -O2
+LDFLAGS = -lm
+
+SRC = main.c parser.c tokenizer.c graph.c math_ops.c
+HEADERS = parser.h tokenizer.h graph.h math_ops.h expression.h
+
+OUTPUT = graph.exe
+
+all: $(OUTPUT)
+
+$(OUTPUT): $(SRC)
+	$(CC) $(CFLAGS) $(SRC) -o $(OUTPUT) $(LDFLAGS)
+
+clean:
+	rm -f $(OUTPUT) *.o
+
+.PHONY: all clean
